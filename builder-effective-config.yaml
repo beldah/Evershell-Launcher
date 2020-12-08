@@ -1,0 +1,35 @@
+directories:
+  output: dist
+  buildResources: build
+appId: EverShellLauncher
+productName: EverShell Launcher
+artifactName: '${productName}-setup-${version}.${ext}'
+copyright: Copyright © 2020-2021 Beldah
+win:
+  target:
+    - target: nsis
+      arch: x64
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+mac:
+  target: dmg
+  category: public.app-category.games
+linux:
+  target: AppImage
+  maintainer: Beldah
+  vendor: Daniel Scalzi
+  synopsis: Minecraft Launcher pour EverShell
+  description: '---'
+  category: Game
+compression: maximum
+files:
+  - filter:
+      - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.travis.yml,.nvmrc,.eslintrc.json,build.js}'
+extraResources:
+  - filter:
+      - libraries
+asar: true
+electronVersion: 9.3.5
